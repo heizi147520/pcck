@@ -1,0 +1,31 @@
+server:
+   port: 9578
+
+logging:
+    path: logs
+    file: bi.log
+
+
+spring:
+   application:
+          name: bi
+   datasource:
+       driver-class-name: oracle.jdbc.driver.OracleDriver
+       url: jdbc:oracle:thin:@//101.201.239.70:1521/orcl
+       username: hyf
+       password: hyf123
+
+
+mybatis:
+    type-aliases-package: com.business.intelligence.model
+    mapper-locations:
+       - mapper/*
+
+imgPath: download/img/
+csvPath: download/csv/
+
+
+
+
+
+

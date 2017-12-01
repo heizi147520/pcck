@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.business.intelligence.mt">
+    <insert id="insertOrder" parameterType="MTOrder">
+        INSERT INTO BIL_MT_ORDER
+        (APP_NO,ORDER_TIME,HOUR_LONG,NAME,ID,CITY,TYPE,STATUS,DIS_STATUS,IS_SCHEDULE,TOTAL_PRICE,POST_DISCOUNT,
+        MT_PRICE,MERCHANT_PRICE,DISH_INFO,DELIVERY_FEE,IS_DISCOUNT,PREFERENTIAL,IS_PRESS,REPLAY_STATUS,MERCHANT_REPLAY,
+        COMPLAINT_TIME,COMPLAINT_INFO,APPRAISE_TIME,DELIVERY_TIME,STAR,APPRAISE_INFO,FOOD_BOX_PRICE,FOOD_BOX_QUANTITY
+        ,ORDER_DONE_TIME,ORDER_CANCEL_INFO,MERCHANT_ID)
+        VALUES
+        (#{appNo,jdbcType=VARCHAR},
+        #{orderTime,jdbcType=DATE},
+        #{hourLong,jdbcType=DATE},
+        #{name,jdbcType=VARCHAR},
+        #{id,jdbcType=VARCHAR},
+        #{city,jdbcType=VARCHAR},
+        #{type,jdbcType=VARCHAR},
+        #{status,jdbcType=VARCHAR},
+        #{disStatus,jdbcType=VARCHAR},
+        #{isSchedule,jdbcType=VARCHAR},
+        #{totalPrice,jdbcType=VARCHAR},
+        #{postDiscount,jdbcType=VARCHAR},
+        #{mtPrice,jdbcType=VARCHAR},
+        #{merchantPrice,jdbcType=VARCHAR},
+        #{dishInfo,jdbcType=VARCHAR},
+        #{deliveryfee,jdbcType=VARCHAR},
+        #{isDiscount,jdbcType=VARCHAR},
+        #{preferential,jdbcType=VARCHAR},
+        #{isPress,jdbcType=VARCHAR},
+        #{replyStatus,jdbcType=VARCHAR},
+        #{merchantReplay,jdbcType=VARCHAR},
+        #{complaintTime,jdbcType=DATE},
+        #{complaintInfo,jdbcType=VARCHAR},
+        #{appraiseTime,jdbcType=DATE},
+        #{deliveryTime,jdbcType=DATE},
+        #{star,jdbcType=VARCHAR},
+        #{appraiseInfo,jdbcType=VARCHAR},
+        #{foodBoxPrice,jdbcType=VARCHAR},
+        #{foodBoxQuantity,jdbcType=VARCHAR},
+        #{orderDoneTime,jdbcType=DATE},
+        #{orderCancelInfo,jdbcType=VARCHAR},
+        #{merchantId,jdbcType=VARCHAR})
+    </insert>
+
+
+    <insert id="insertBusiness" parameterType="MTBusiness">
+        INSERT INTO BIL_MT_BUSINESS
+        (DATE_,TOTAL,SHOP_SUBIDY,
+        MEITUAN_SUBIDY,ESTIMATE,
+        VALIDATE_ORDER,INVALIDATE_ORDER,SHOP_NAME,ID,MERCHANT_ID)
+        VALUES(
+        #{date,jdbcType=VARCHAR},
+        #{total,jdbcType=VARCHAR},
+        #{shopSubsidy,jdbcType=VARCHAR},
+        #{meiTuanSubsidy,jdbcType=VARCHAR},
+        #{estimate,jdbcType=VARCHAR},
+        #{validateOrder,jdbcType=VARCHAR},
+        #{invalidateOrder,jdbcType=VARCHAR},
+        #{shopName,jdbcType=VARCHAR},
+        #{id,jdbcType=VARCHAR},
+        #{merchantId,jdbcType=VARCHAR}
+        )
+    </insert>
+
+    <insert id="insertAnalysis" parameterType="MTAnalysis">
+        INSERT INTO BIL_MT_ANALYSIS (
+        ID,
+        DATE_,
+        EXPOSURE_NUM,
+        VISIT_NUM,
+        ORDER_NUM,
+        SHOP_NAME,MERCHANT_ID) VALUES (
+        #{id,jdbcType=VARCHAR},
+        #{date,jdbcType=DATE},
+        #{exposureNum,jdbcType=INTEGER},
+        #{visitNum,jdbcType=INTEGER},
+        #{orderNum,jdbcType=INTEGER},
+        #{shopName,jdbcType=VARCHAR},
+        #{merchantId,jdbcType=VARCHAR})
+    </insert>
+
+    <insert id="insertSales" parameterType="MTHotSales">
+        INSERT INTO BIL_MT_SALES (
+        ID,
+        DATE_,
+        NAME,
+        PRODUCT_NAME,
+        SELL_NUM,
+        PERCENTAGE_NUM,
+        PERCENTAGE_PRICE,
+        MERCHANT_ID
+        ) VALUES (
+        #{id,jdbcType=VARCHAR},
+        #{date,jdbcType=DATE},
+        #{name,jdbcType=VARCHAR},
+        #{productName,jdbcType=VARCHAR},
+        #{sellNum,jdbcType=INTEGER},
+        #{percentageNum,jdbcType=VARCHAR},
+        #{percentagePrice,jdbcType=VARCHAR},
+        #{merchantId,jdbcType=VARCHAR}
+        )
+    </insert>
+
+    <insert id="insertComment" parameterType="MTComment">
+        INSERT INTO BIL_MT_COMMENT (
+        ID,
+        USER_NAME,
+        CREATE_TIME,
+        COMMENT_,
+        FOODS,
+        SCORE_MEANING,
+        NAME,
+        SHIP_TIME,
+        TASTE_SCORE,
+        SHIP_SCORE,
+        PACKAGING_SCORE,
+        ORDER_COMMENT_SCORE,
+        E_COMMENT,
+        MERCHANT_ID
+        ) VALUES (
+        #{id,jdbcType=VARCHAR},
+        #{userName,jdbcType=VARCHAR},
+        #{createTime,jdbcType=DATE},
+        #{comment,jdbcType=VARCHAR},
+        #{foods,jdbcType=VARCHAR},
+        #{scoreMeaning,jdbcType=VARCHAR},
+        #{name,jdbcType=VARCHAR},
+        #{shipTime,jdbcType=INTEGER},
+        #{tasteScore,jdbcType=INTEGER},
+        #{shipScore,jdbcType=INTEGER},
+        #{packagingScore,jdbcType=INTEGER},
+        #{orderCommentScore,jdbcType=INTEGER},
+        #{eComment,jdbcType=VARCHAR},
+        #{merchantId,jdbcType=VARCHAR}
+        )
+    </insert>
+
+
+    <insert id="insertBill" parameterType="MTBill">
+        INSERT INTO BIL_MT_BILL(
+        ID,
+        NAME,
+        TRADE_TYPE,
+        DESC_,
+        PAY_TYPE,
+        APP_NO,
+        ORDER_CREATE_TIME,
+        DONE_TIME,
+        REDUND_TIME,
+        ORDER_STATUS,
+        SHIP_TYPE,
+        SHIP_STATUS,
+        PAY_DAY,
+        VESTING_DAY,
+        SHOP_PRICE,
+        TOTAL_PRICE,
+        PROMATION_PRICE,
+        MT_TUAN_SUBSIDY,
+        SERVICE_CHARGE,
+        SHIP_PRICE,
+        ONLINE_PIRCE,
+        OFFLINE_PRICE,
+        RATE,
+        GUARANTEES,
+        DISCOUNT,
+        APP_SEQ,
+        SETTLE_STATUS,
+        MERCHANT_ID) VALUES
+        (
+        #{id,jdbcType=VARCHAR},
+        #{name,jdbcType=VARCHAR},
+        #{tradeType,jdbcType=VARCHAR},
+        #{desc,jdbcType=VARCHAR},
+        #{payType,jdbcType=VARCHAR},
+        #{appNo,jdbcType=VARCHAR},
+        #{orderCreateTime,jdbcType=DATE},
+        #{doneTime,jdbcType=DATE},
+        #{refundTime,jdbcType=DATE},
+        #{orderStatus,jdbcType=VARCHAR},
+        #{shipType,jdbcType=VARCHAR},
+        #{shipStatus,jdbcType=VARCHAR},
+        #{payDay,jdbcType=DATE},
+        #{vestingDay,jdbcType=VARCHAR},
+        #{shopPrice,jdbcType=VARCHAR},
+        #{totalPrice,jdbcType=VARCHAR},
+        #{promotionPrice,jdbcType=VARCHAR},
+        #{meiTuanSubsidy,jdbcType=VARCHAR},
+        #{serviceCharge,jdbcType=VARCHAR},
+        #{shipPrice,jdbcType=VARCHAR},
+        #{onlinePrice,jdbcType=VARCHAR},
+        #{offlnePirce,jdbcType=VARCHAR},
+        #{rate,jdbcType=VARCHAR},
+        #{guarantees,jdbcType=VARCHAR},
+        #{discount,jdbcType=VARCHAR},
+        #{appSeq,jdbcType=VARCHAR},
+        #{settleStatus,jdbcType=VARCHAR},
+        #{merchantId,jdbcType=VARCHAR}
+        )
+    </insert>
+
+    <insert id="insertAct" parameterType="MTAct">
+        INSERT INTO BIL_MT_ACT (
+        ID,
+        SHOP_NAME,
+        START_TIME,
+        END_TIME,
+        TYPE,
+        ACT_NAME,
+        IS_END,
+        CONTEXT,MERCHANT_ID)
+        VALUES(
+        #{id,jdbcType=VARCHAR},
+        #{name,jdbcType=VARCHAR},
+        #{startTime,jdbcType=DATE},
+        #{endTime,jdbcType=DATE},
+        #{type,jdbcType=VARCHAR},
+        #{actName,jdbcType=VARCHAR},
+        #{isEnd,jdbcType=VARCHAR},
+        #{context,jdbcType=VARCHAR},
+        #{merchantId,jdbcType=VARCHAR}
+        )
+    </insert>
+</mapper>
+
+

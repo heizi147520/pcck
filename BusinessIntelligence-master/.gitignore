@@ -1,0 +1,10 @@
+# Created by .ignore support plugin (hsz.mobi)
+.idea
+target
+*.iml
+.cookies
+logs
+ElemeKsidStore
+cookieStore
+download
+event.log
